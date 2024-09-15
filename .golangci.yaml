@@ -1,0 +1,71 @@
+run:
+  deadline: 5m
+  skip-files: [ ]
+  skip-dirs: [ ]
+
+linters-settings:
+  govet:
+    enable-all: true
+    disable:
+      - fieldalignment
+  gocyclo:
+    min-complexity: 16
+  cyclop:
+    max-complexity: 16
+  maligned:
+    suggest-new: true
+  goconst:
+    min-len: 5
+    min-occurrences: 3
+  misspell:
+    locale: US
+  funlen:
+    lines: -1
+    statements: 50
+  godox:
+    keywords:
+      - FIXME
+  gofumpt:
+    extra-rules: true
+  gocritic:
+    enabled-tags:
+      - diagnostic
+      - style
+      - performance
+    disabled-checks:
+      - sloppyReassign
+      - rangeValCopy
+      - octalLiteral
+      - paramTypeCombine # already handle by gofumpt.extra-rules
+  lll:
+    line-length: 150
+
+linters:
+  enable-all: true
+  disable:
+    - execinquery # deprecated
+    - exhaustruct
+    - exportloopref # deprecated
+    - gomnd
+    - varnamelen
+    - testpackage
+    - paralleltest
+    - gochecknoglobals
+    - depguard
+    - mnd
+    - nonamedreturns
+
+issues:
+  exclude-use-default: false
+  max-per-linter: 0
+  max-same-issues: 0
+  exclude:
+    - 'package-comments: should have a package comment'
+
+  exclude-rules:
+  - linters:
+      - err113
+      - funlen
+      - dupl
+      - musttag
+    path: "_test\\.go$"
