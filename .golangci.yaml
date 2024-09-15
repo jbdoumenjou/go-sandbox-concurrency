@@ -69,3 +69,6 @@ issues:
       - dupl
       - musttag
     path: "_test\\.go$"
+  - linters:
+      - gosec
+    path: "fan/fan\\.go$"

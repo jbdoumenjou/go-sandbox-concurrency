@@ -1,7 +1,9 @@
 package main
 
-import "github.com/jbdoumenjou/go-sandbox-concurency/confinement"
+import (
+	"github.com/jbdoumenjou/go-sandbox-concurency/fan"
+)
 
 func main() {
-	confinement.Run([]int{1, 2, 3, 4, 5})
+	fan.Run()
 }
